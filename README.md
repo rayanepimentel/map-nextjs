@@ -47,8 +47,8 @@ Ao rodar _yarn dev_ ele já consegue entender o typescript. Ele identificou e po
 E foi criado um novo arquivo _next-env.d.ts_, onde tá declarado alguns tipos.
 
 
-### [EditorConfig](https://editorconfig.org/)
-Definir regras do seu editor, assim toda vez que você crie um novo arquivo ele siga essas regras.
+### Editor Config
+[EditorConfig](https://editorconfig.org/), define as regras do seu editor, assim toda vez que um arquivos for criado, ele siga essas regras.
 Que pode ser:
 - Tamanho da indentação 
 - Se você vai usar tabs ou spaces
@@ -57,5 +57,44 @@ Que pode ser:
 
 Na raiz do projeto:
 ```bash
-touch editorconfig
+touch .editorconfig
+```
+
+### ESLint
+[ESLint](https://eslint.org/), analisa o código conforme vamos escrevendo para identificar problemas. Ex. Criação de variáveis que não estamos utilizando.
+
+```bash
+npx eslint --init
+```
+Arquivo criado: .eslintrc.json
+
+Plugin:
+- Necessário para analisar os hooks 
+- [Instalação](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+
+```bash
+yarn add eslint-plugin-react-hooks --dev
+```
+
+- Adicionando mais regras:
+```json
+{
+  ...
+  "react/prop-types": "off", //para não ter conflito com o typescript, pois o ts será o responsável pelos tipos
+  "react/react-in-jsx-scope": "off", //ao utilizar o jsx, precisa importar o React. Só que no Next o React 
+                                    //já é definido globalmente, então não preciso ficar importando, já  que ele tá
+                                    //importado globalmente em todos os arquivos.
+  "explicit-module-boundary-types": "off" //é quando precisamos tipar tipos implícitos, nesse caso o ts reconhece, infere
+                                          //o tipo
+}
+```
+
+- Detectando a versão do React
+No arquivo _.eslintrc.json_ add:
+```json
+"settings": {
+  "react": {
+    "version": "detect"//ao rodar eslint ele não irá avisar que não tem a versão do react
+		}
+},
 ```
