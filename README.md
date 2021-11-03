@@ -45,3 +45,17 @@ yarn dev
 
 Ao rodar _yarn dev_ ele já consegue entender o typescript. Ele identificou e populou o tsconfig<br>
 E foi criado um novo arquivo _next-env.d.ts_, onde tá declarado alguns tipos.
+
+
+### [EditorConfig](https://editorconfig.org/)
+Definir regras do seu editor, assim toda vez que você crie um novo arquivo ele siga essas regras.
+Que pode ser:
+- Tamanho da indentação 
+- Se você vai usar tabs ou spaces
+- Se você vai pular uma linha no final do arquivo
+- ...
+
+Na raiz do projeto:
+```bash
+touch editorconfig
+```
