@@ -135,7 +135,7 @@ No arquivo .eslintrc.json no "extends" add "plugin:prettier/recommended"
 }
 
 ```
-Por ultimo, cria uma pasta na raiz .vsCode e um arquivo .settings.json
+Por ultimo, crie uma pasta na raiz .vsCode e o arquivo .settings.json
 ```json
 {
   "editor.formarOnSave": false,
