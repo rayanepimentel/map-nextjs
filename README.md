@@ -98,3 +98,49 @@ No arquivo _.eslintrc.json_ add:
 		}
 },
 ```
+
+### Prettier
+- O [prettier[(https://prettier.io/) serve para formatação visual do código:
+  - Se tá usando aspas simples ou duplas
+  - Espaçamento
+  - ...
+
+```bash
+yarn add --dev --exact prettier
+```
+configurar o arquivo .prettierrc.json
+```bash
+echo {aqui terá as regras}> .prettierrc.json
+```
+Regras:
+```json
+{
+  "trailingComma" : "none", //virgula no final da linha do obj
+  "semi": false, //ponto e virgula 
+  "singleQuote": true //aspas simples
+}
+```
+
+Instalar o [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+
+```bash
+yarn add --dev eslint-plugin-prettier eslint-config-prettier
+```
+
+No arquivo .eslintrc.json no "extends" add "plugin:prettier/recommended"
+
+```json
+{
+  "extends": ["plugin:prettier/recommended"]
+}
+
+```
+Por ultimo, cria uma pasta na raiz .vsCode e um arquivo .settings.json
+```json
+{
+  "editor.formarOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
